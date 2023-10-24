@@ -1,0 +1,43 @@
+via interpollation
+<img src="{{imgpath}}" style="width: 100px;" (mouseover)="MouseOver()">
+<br>
+via property binding
+<img [src]="imgpath" style="width: 100px;">
+
+
+<br><br>
+
+
+<br>
+<br>
+two way binding work
+<input type="text" [(ngModel)]="myName">
+
+
+{{myName}}
+
+
+<br>
+<button (click)="method2()" >Click Me</button>
+<br>
+Red
+<input type="radio" name="color" (change)="Red()">
+Blue
+<input type="radio" name="color" (change)="Blue()">
+
+<br>
+{{msg}}
+
+<br>
+<select (change)="color($event)" [(ngModel)]="color1">
+  <option value="Red" >Red</option>
+  <option value="Blue" >Blue</option>
+</select>
+
+{{10+20}}
+
+
+{{ 34> 90}}
+
+
+{{method1()}}

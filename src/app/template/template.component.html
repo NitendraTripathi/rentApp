@@ -1,0 +1,35 @@
+<div class="container">
+
+
+<form #myForm="ngForm" (ngSubmit)="OnSubmit(myForm)">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" name="email" required class="form-control" id="exampleInputEmail1"
+    aria-describedby="emailHelp" [(ngModel)]="user.email" #txtemail="ngModel">
+    <span class="text-danger" *ngIf="txtemail.touched && txtemail.invalid " > Email is required</span>
+
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Gender</label>
+    <select name="gender" ngModel>
+      <option value="{{x}}" *ngFor="let x of gender">{{x}}</option>
+
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" #pwd="ngModel" required minlength="6"  name="pwd" class="form-control" id="exampleInputPassword1" [(ngModel)]="user.pwd">
+    <span  class="text-danger" *ngIf="pwd.touched && pwd.invalid" >Password is required</span>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="chk" ngModel>
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" >Submit</button> &nbsp;
+  <input type="button" class="btn btn-secondary" (click)="OnSubmit(myForm)" value="Postdata">
+  <h1>
+    Form value
+  </h1>
+  {{myForm.value | json}}
+</form>
+</div>

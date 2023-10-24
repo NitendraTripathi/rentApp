@@ -1,0 +1,88 @@
+
+<div class="container">
+  <button type="button" class="btn btn-primary" (click)="ShowHide()">Show</button>
+<br>
+<br>
+
+<div *ngIf="isShow; then thenblock ,else eleseblock">
+
+</div>
+
+<ng-template #thenblock>
+  block is created
+</ng-template>
+<ng-template #eleseblock>
+  block is not created
+</ng-template>
+
+<select>
+  <option *ngFor="let item  of gender"> {{item}}</option>
+
+</select>
+
+
+<h1>Employee name</h1>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">age</th>
+      <th scope="col">Salary</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let emp of friendslist;index as i">
+        <ng-container *ngIf="emp.salary> 1000">
+          <th scope="row">{{i+1}}</th>
+          <td>{{emp.name | custum :emp.gender}}</td>
+          <td>{{emp.gender}}</td>
+          <td>{{emp.age}}</td>
+          <td>{{emp.salary}}</td>
+        </ng-container>
+
+
+    </tr>
+
+  </tbody>
+</table>
+
+
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+
+<div class='card'>
+  <div class='card-header'>
+    ngSwitch Example
+  </div>
+  <div class="card-body">
+    Input string : <input type='text' [(ngModel)]="num" />
+
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="'1'">One</div>
+      <div *ngSwitchCase="'2'">Two</div>
+      <div *ngSwitchCase="'3'">Three</div>
+      <div *ngSwitchCase="'4'">Four</div>
+      <div *ngSwitchCase="'5'">Five</div>
+      <div *ngSwitchDefault>This is Default</div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<div [ngClass]="'class1 class2'"> This is a div</div>
+<div [ngStyle]="style12"> This is a div</div>
+

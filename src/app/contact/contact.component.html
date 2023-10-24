@@ -1,0 +1,37 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">username</th>
+      <th scope="col">email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usr of studentslist;">
+      <th scope="row">{{usr.id}}</th>
+      <td>{{usr.name}}</td>
+      <td>{{usr.classname}}</td>
+      <td>{{usr.address}}</td>
+    </tr>
+      </tbody>
+</table>
+<h1>Students Detail</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">classname</th>
+      <th scope="col">address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usr of userlist">
+      <th scope="row">{{usr.id}}</th>
+      <td>{{usr.name}}</td>
+      <td>{{usr.username}}</td>
+      <td>{{usr.email}}</td>
+    </tr>
+      </tbody>
+</table>

@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 border border-primary">
+      <form [formGroup]="myform" (ngSubmit)="StudentRegistration()">
+        <div class="row">
+          <h1>Add Employee</h1>
+          <div class="col-mb-6">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input
+              type="text"
+              name="name"
+              formControlName="name"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Address</label>
+            <input
+              type="text"
+              name="address"
+              formControlName="address"
+              required
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Class Name</label>
+          <input
+            type="email"
+            formControlName="classname"
+            required
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">{{isEdit? "Update Employee":"Add Employee" }}</button>
+          &nbsp;
+          <button type="button" class="btn btn-primary" (click)="Reset()">Cancel</button>
+
+          &nbsp;
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-6 border border-primary">
+      <h1>List of Employee</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Class Name</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let st of studentlst">
+            <th scope="row">{{st.id}}</th>
+            <td>{{st.name}}</td>
+            <td>{{st.classname}}</td>
+            <td>{{st.address}}</td>
+            <td><input type="button" value="Edit" (click)="OnEdit(st)"></td>
+            <td><input type="button" value="Delete" (click)="OnDelete(st.id)"></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+
+
+  <form [formGroup]="myForm" (ngSubmit)="formSubmit()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" formControlName="email"  required class="form-control" id="exampleInputEmail1"
+      aria-describedby="emailHelp" >
+      <span class="text-danger" *ngIf="myForm.get('email')?.invalid">Email is mandetory</span>
+
+
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Gender</label>
+      <select formControlName="gender">
+        <option value="{{item}}" *ngFor="let item of gender">{{item}}</option>
+
+      </select>
+<span class="text-danger" *ngIf="myForm.get('gender')?.invalid" >Please select gender</span>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password"  formControlName="pwd" class="form-control" id="exampleInputPassword1" >
+<span class="text-danger" *ngIf="myForm.get('pwd')?.invalid" > Please engter passowrd with minimum 3 char</span>
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="chk" ngModel>
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" >Submit</button> &nbsp;
+    <button type="button" class="btn btn-secondary" (click)="PatchValues()" >SetValue</button> &nbsp;
+
+
+    <h1>
+      Form value
+    </h1>
+
+  </form>
+  </div>
